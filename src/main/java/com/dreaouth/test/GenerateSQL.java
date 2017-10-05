@@ -9,6 +9,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//使用逆向工程，根据数据可中的内容生成代码及sql语句。
 public class test {
     public static void main(String args[]) throws Exception{
         List<String> warnings = new ArrayList<String>();
