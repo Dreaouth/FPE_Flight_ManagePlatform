@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <!DOCTYPE html >
 <html>
+<% pageContext.setAttribute("APP_PATH", request.getContextPath()); %>
 <head>
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -10,26 +11,29 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <script
 	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<link type="text/css" rel="stylesheet" href="package/css/H-ui.css" />
-<link type="text/css" rel="stylesheet" href="package/css/H-ui.admin.css" />
+<link type="text/css" rel="stylesheet" href="${APP_PATH}/package/css/H-ui.css" />
+<link type="text/css" rel="stylesheet" href="${APP_PATH}/package/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css"
 	href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
 <link type="text/css" rel="stylesheet"
-	href="package/font/font-awesome.min.css" />
-<title>用户管理</title>
+	href="${APP_PATH}/package/font/font-awesome.min.css" />
+<title>404</title>
 </head>
+<%
+	String value=(String) request.getAttribute("information");
+%>
 <body>
 <nav class="Hui-breadcrumb"><i class="icon-home"></i>
-访问权限不足 </nav>
+错误 </nav>
 <br><br><br><br><br><br><br>
-<div align="center" class="text-c"><h3><strong>对不起</strong>&nbsp;&nbsp;您的<strong>管理权限</strong>不足</h3></div>
+<div align="center" class="text-c"><h3> <%=value%> </div>
 
-<script type="text/javascript" src="package/js/jquery.min.js"></script>
-	<script type="text/javascript" src="package/layer/layer.min.js"></script>
-	<script type="text/javascript" src="package/js/pagenav.cn.js"></script>
-	<script type="text/javascript" src="package/js/H-ui.js"></script>
+<script type="text/javascript" src="${APP_PATH}/package/js/jquery.min.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/package/layer/layer.min.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/package/js/pagenav.cn.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/package/js/H-ui.js"></script>
 	<script type="text/javascript"
-		src="package/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="package/js/H-ui.admin.js"></script>
+		src="${APP_PATH}/package/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/package/js/H-ui.admin.js"></script>
 </body>
 </html>

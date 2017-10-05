@@ -11,7 +11,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/test?useSSL=false"
+                        connectionURL="jdbc:mysql://localhost:3306/flight_manageplatform?useSSL=false"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -35,6 +35,18 @@
         </javaClientGenerator>
 
         <table tableName="user">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="city">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="passenger">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="plane">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="company">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

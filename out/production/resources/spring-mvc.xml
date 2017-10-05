@@ -56,11 +56,8 @@
         <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
 
-    <!--过滤掉静态资源文件
-    <mvc:resources mapping="/bootstrap/**/*" location="/WEB_INF/bootstrap/"/>
-    <mvc:resources mapping="/css/**/*" location="/resources/css/"/>
-    <mvc:resources mapping="/js/**/*" location="/resources/js/"/>
-    <mvc:resources mapping="/img/**/*" location="/resources/img/"/>
-    -->
-
+    <!-- 解除静态资源的访问（将springMVC不能处理的请求交给tomcat） -->
+    <mvc:default-servlet-handler/>
+    <!--能支持springMVC更高级的一些功能，JSR303校验，快捷ajax请求，映射动态请求-->
+    <mvc:annotation-driven/>
 </beans>

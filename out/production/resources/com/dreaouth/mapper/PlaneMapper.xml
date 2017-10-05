@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreaouth.dao.PlaneMapper">
+  <resultMap id="BaseResultMap" type="com.dreaouth.model.Plane">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="start_drome" jdbcType="CHAR" property="startDrome" />
+    <result column="arrive_drome" jdbcType="CHAR" property="arriveDrome" />
+    <result column="company" jdbcType="CHAR" property="company" />
+    <result column="airlineCode" jdbcType="VARCHAR" property="airlinecode" />
+    <result column="start_time" jdbcType="TIME" property="startTime" />
+    <result column="arrive_time" jdbcType="TIME" property="arriveTime" />
+    <result column="mode" jdbcType="VARCHAR" property="mode" />
+    <result column="date" jdbcType="DATE" property="date" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from plane
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dreaouth.model.Plane">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into plane (start_drome, arrive_drome, company, 
+      airlineCode, start_time, arrive_time, 
+      mode, date, number, price
+      )
+    values (#{startDrome,jdbcType=CHAR}, #{arriveDrome,jdbcType=CHAR}, #{company,jdbcType=CHAR}, 
+      #{airlinecode,jdbcType=VARCHAR}, #{startTime,jdbcType=TIME}, #{arriveTime,jdbcType=TIME}, 
+      #{mode,jdbcType=VARCHAR}, #{date,jdbcType=DATE}, #{number,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.dreaouth.model.Plane">
+    update plane
+    set start_drome = #{startDrome,jdbcType=CHAR},
+      arrive_drome = #{arriveDrome,jdbcType=CHAR},
+      company = #{company,jdbcType=CHAR},
+      airlineCode = #{airlinecode,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIME},
+      arrive_time = #{arriveTime,jdbcType=TIME},
+      mode = #{mode,jdbcType=VARCHAR},
+      date = #{date,jdbcType=DATE},
+      number = #{number,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, start_drome, arrive_drome, company, airlineCode, start_time, arrive_time, 
+    mode, date, number, price
+    from plane
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, start_drome, arrive_drome, company, airlineCode, start_time, arrive_time, 
+    mode, date, number, price
+    from plane
+  </select>
+</mapper>

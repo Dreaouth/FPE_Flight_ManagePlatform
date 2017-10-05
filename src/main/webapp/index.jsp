@@ -9,6 +9,9 @@
 <html>
   <head>
     <title>$Title$</title>
+    <%
+        pageContext.setAttribute("APP_PATH",request.getContextPath());
+    %>
   </head>
   <body>
   Hello,world,SSM!

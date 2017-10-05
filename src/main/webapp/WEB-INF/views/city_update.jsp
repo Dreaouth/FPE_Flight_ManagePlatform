@@ -46,6 +46,10 @@
     }
 </script>
 <%
+    String id=(String)request.getAttribute("add_id");
+    if(id==null){
+        id="";
+    }
     String citycode=(String)request.getAttribute("add_citycode");
     if(citycode==null){
         citycode="";
@@ -65,9 +69,13 @@
 %>
 <div class="pd-20">
     <div class="Huiform">
-        <form action="city/insertCity" method="post" onsubmit="return check()" target="_parent">
+        <form action="city/updateCity" method="post" onsubmit="return check()" target="_parent">
             <table class="table table-bg">
                 <tbody>
+                <tr hidden="hidden">
+                    <th width="100" class="text-r"><span class="c-red">*</span> ID：</th>
+                    <td><input type="text" style="width:300px" placeholder="请输入城市三字码" class="input-text" id="add_id" name="add_id" value=<%=id %>></td>
+                </tr>
                 <tr>
                     <th width="100" class="text-r"><span class="c-red">*</span> 城市代码：</th>
                     <td><input type="text" style="width:300px" placeholder="请输入城市三字码" class="input-text" id="add_citycode" name="add_citycode" value=<%=citycode %>></td>
