@@ -38,6 +38,11 @@
     from passenger
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByCard" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, age, tel, card, seat, plane_id
+    from passenger
+    where card = #{card,jdbcType=INTEGER} or name = #{card,jdbcType=INTEGER}
+  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, name, age, tel, card, seat, plane_id
     from passenger

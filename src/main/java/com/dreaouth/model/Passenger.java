@@ -15,6 +15,28 @@ public class Passenger {
 
     private Integer planeId;
 
+    public Passenger(Integer id, String name, Integer age, Long tel, String card, String seat, Integer planeId) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.tel = tel;
+        this.card = card;
+        this.seat = seat;
+        this.planeId = planeId;
+    }
+
+    public Passenger() {
+    }
+
+    public Passenger(String name, Integer age, Long tel, String card, String seat, Integer planeId) {
+        this.name = name;
+        this.age = age;
+        this.tel = tel;
+        this.card = card;
+        this.seat = seat;
+        this.planeId = planeId;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -22,4 +22,6 @@ public interface CityMapper {
     List<City> selectByProvince(String province);
 
     City selectByDrome(String dromename);
+
+    City selectByCityCode(String citycode);
 }

@@ -7,10 +7,10 @@
     <result column="arrive_drome" jdbcType="CHAR" property="arriveDrome" />
     <result column="company" jdbcType="CHAR" property="company" />
     <result column="airlineCode" jdbcType="VARCHAR" property="airlinecode" />
-    <result column="start_time" jdbcType="TIME" property="startTime" />
-    <result column="arrive_time" jdbcType="TIME" property="arriveTime" />
+    <result column="start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="arrive_time" jdbcType="VARCHAR" property="arriveTime" />
     <result column="mode" jdbcType="VARCHAR" property="mode" />
-    <result column="date" jdbcType="DATE" property="date" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
     <result column="number" jdbcType="INTEGER" property="number" />
     <result column="price" jdbcType="INTEGER" property="price" />
   </resultMap>
@@ -27,8 +27,8 @@
       mode, date, number, price
       )
     values (#{startDrome,jdbcType=CHAR}, #{arriveDrome,jdbcType=CHAR}, #{company,jdbcType=CHAR}, 
-      #{airlinecode,jdbcType=VARCHAR}, #{startTime,jdbcType=TIME}, #{arriveTime,jdbcType=TIME}, 
-      #{mode,jdbcType=VARCHAR}, #{date,jdbcType=DATE}, #{number,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}
+      #{airlinecode,jdbcType=VARCHAR}, #{startTime,jdbcType=VARCHAR}, #{arriveTime,jdbcType=VARCHAR},
+      #{mode,jdbcType=VARCHAR}, #{date,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.dreaouth.model.Plane">
@@ -37,10 +37,10 @@
       arrive_drome = #{arriveDrome,jdbcType=CHAR},
       company = #{company,jdbcType=CHAR},
       airlineCode = #{airlinecode,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=TIME},
-      arrive_time = #{arriveTime,jdbcType=TIME},
+      start_time = #{startTime,jdbcType=VARCHAR},
+      arrive_time = #{arriveTime,jdbcType=VARCHAR},
       mode = #{mode,jdbcType=VARCHAR},
-      date = #{date,jdbcType=DATE},
+      date = #{date,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
       price = #{price,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
@@ -50,6 +50,12 @@
     mode, date, number, price
     from plane
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByDrome" parameterType="com.dreaouth.model.Plane" resultMap="BaseResultMap">
+    select id, start_drome, arrive_drome, company, airlineCode, start_time, arrive_time,
+    mode, date, number, price
+    from plane
+    where start_drome = #{startDrome,jdbcType=VARCHAR} and arrive_drome = #{arriveDrome,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, start_drome, arrive_drome, company, airlineCode, start_time, arrive_time, 

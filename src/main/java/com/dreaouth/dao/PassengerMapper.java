@@ -13,6 +13,8 @@ public interface PassengerMapper {
 
     Passenger selectByPrimaryKey(Integer id);
 
+    Passenger selectByCard(String card);
+
     List<Passenger> selectAll();
 
     int updateByPrimaryKey(Passenger record);

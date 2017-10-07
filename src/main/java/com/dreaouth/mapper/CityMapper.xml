@@ -39,6 +39,11 @@
     from city
     where cityname = #{cityname,jdbcType=VARCHAR}
   </select>
+    <select id="selectByCityCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select id, province, cityname, cityCode, dromename
+        from city
+        where cityCode = #{citycode,jdbcType=VARCHAR}
+    </select>
     <select id="selectByProvince" parameterType="java.lang.String" resultMap="BaseResultMap">
         select id, province, cityname, cityCode, dromename
         from city

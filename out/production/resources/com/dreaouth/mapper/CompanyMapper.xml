@@ -28,6 +28,11 @@
     from company
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, code
+    from company
+    where code = #{code,jdbcType=INTEGER}
+  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, name, code
     from company

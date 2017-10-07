@@ -1,7 +1,5 @@
 package com.dreaouth.model;
 
-import java.util.Date;
-
 public class Plane {
     private Integer id;
 
@@ -13,17 +11,52 @@ public class Plane {
 
     private String airlinecode;
 
-    private Date startTime;
+    private String startTime;
 
-    private Date arriveTime;
+    private String arriveTime;
 
     private String mode;
 
-    private Date date;
+    private String date;
 
     private Integer number;
 
     private Integer price;
+
+    public Plane() {
+    }
+
+    public Plane(String startDrome, String arriveDrome) {
+        this.startDrome = startDrome;
+        this.arriveDrome = arriveDrome;
+    }
+
+    public Plane(Integer id, String startDrome, String arriveDrome, String company, String airlinecode, String startTime, String arriveTime, String mode, String date, Integer number, Integer price) {
+        this.id = id;
+        this.startDrome = startDrome;
+        this.arriveDrome = arriveDrome;
+        this.company = company;
+        this.airlinecode = airlinecode;
+        this.startTime = startTime;
+        this.arriveTime = arriveTime;
+        this.mode = mode;
+        this.date = date;
+        this.number = number;
+        this.price = price;
+    }
+
+    public Plane(String startDrome, String arriveDrome, String company, String airlinecode, String startTime, String arriveTime, String mode, String date, Integer number, Integer price) {
+        this.startDrome = startDrome;
+        this.arriveDrome = arriveDrome;
+        this.company = company;
+        this.airlinecode = airlinecode;
+        this.startTime = startTime;
+        this.arriveTime = arriveTime;
+        this.mode = mode;
+        this.date = date;
+        this.number = number;
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;
@@ -65,19 +98,19 @@ public class Plane {
         this.airlinecode = airlinecode == null ? null : airlinecode.trim();
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getArriveTime() {
+    public String getArriveTime() {
         return arriveTime;
     }
 
-    public void setArriveTime(Date arriveTime) {
+    public void setArriveTime(String arriveTime) {
         this.arriveTime = arriveTime;
     }
 
@@ -89,11 +122,11 @@ public class Plane {
         this.mode = mode == null ? null : mode.trim();
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

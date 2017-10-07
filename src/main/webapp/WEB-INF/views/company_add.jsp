@@ -60,10 +60,6 @@
             <table class="table table-bg">
                 <tbody>
                 <tr>
-                    <th width="100" class="text-r"><span class="c-red">*</span> 航空公司ID：</th>
-                    <td><input type="text" style="width:300px" placeholder="请输入城市三字码" class="input-text" id="id" name="id" value=<%=id %>></td>
-                </tr>
-                <tr>
                     <th width="100" class="text-r"><span class="c-red">*</span> 航空公司代码：</th>
                     <td><input type="text" style="width:300px" class="input-text"  id="code" name="code" value=<%=code %>></td>
                 </tr>

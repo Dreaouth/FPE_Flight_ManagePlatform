@@ -13,6 +13,8 @@ public interface PlaneMapper {
 
     Plane selectByPrimaryKey(Integer id);
 
+    List<Plane> selectByDrome(Plane record);
+
     List<Plane> selectAll();
 
     int updateByPrimaryKey(Plane record);

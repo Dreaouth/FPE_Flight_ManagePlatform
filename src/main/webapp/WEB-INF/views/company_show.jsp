@@ -18,14 +18,14 @@
 </head>
 <body>
 <%
-    String check=(String) request.getAttribute("check");
-    if (check.equals("ok")) {
+    String check = (String) request.getAttribute("check");
+    if (check.equals("add")) {
 %>
 <script type="text/javascript">
     alert("添加成功！");
 </script>
 <%
-}else if (check.equals("ok_update")){
+} else if (check.equals("update")) {
 %>
 <script type="text/javascript">
     alert("修改成功！");
@@ -48,8 +48,8 @@
 </nav>
 <div class="pd-20">
     <div class="text-c">
-        <form action="selectCity" method="post">
-            城市查询： <input type="text" class="input-text" style="width: 250px"
+        <form action="selectCompany" method="post">
+            航空公司查询： <input type="text" class="input-text" style="width: 250px"
                          placeholder="输入航空公司" id="sta_name" name="sta_name"
                          value=<%=query%>>&nbsp;&nbsp;&nbsp;
             <button type="submit" class="btn btn-success">
@@ -67,8 +67,9 @@
             <thead>
             <tr class="text-c">
                 <th width="50">ID</th>
-                <th width="150">航空公司</th>
-                <th width="150">航空公司代码</th>
+                <th width="200">航空公司</th>
+                <th width="200">航空公司代码</th>
+                <th width="200">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -79,7 +80,7 @@
                     <td>${temp.code}</td>
                     <td class="f-14 user-manage"><a title="编辑"
                                                     href="javascript:;"
-                                                    onClick="user_edit('4','550','','修改机场信息','update?add_id=${temp.id}&add_name=${temp.name}&add_code=${temp.code}')"
+                                                    onClick="user_edit('4','550','','修改机场信息','update?id=${temp.id}&name=${temp.name}&code=${temp.code}')"
                                                     class="ml-5" style="text-decoration: none"> <i
                             class="icon-edit"></i></a><a title="删除" href="javascript:;"
                                                          onClick="sta_del(this,${temp.id})" class="ml-5"
@@ -105,7 +106,7 @@
     }
 
     function sta_del(obj, id) {
-        layer.confirm('确认删除该机场吗 ', function (index) {
+        layer.confirm('确认删除该航空公司吗 ', function (index) {
             if (window.XMLHttpRequest) {
                 req = new XMLHttpRequest();
             } else if (window.ActiveXObject) {
@@ -115,7 +116,7 @@
                 req.open("POST", "deleteCompany", true);
                 req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 req.onreadystatechange = callback;
-                req.send("sta_id=" + id);
+                req.send("id=" + id);
             }
             $(obj).parents("tr").remove();
             layer.msg('已删除!', 1);

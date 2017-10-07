@@ -46,6 +46,10 @@ public class CityController {
         String province = request.getParameter("add_province");
         String citycode = request.getParameter("add_citycode");
         String drome = request.getParameter("add_drome");
+        if (citycode.length()!=3){
+            request.setAttribute("information","输入的机场代码不符，代码长度为三个字符！");
+            return "failure";
+        }
         City city = new City(province, cityname, citycode, drome);
         int check = cityService.insert(city);
         if (check == 1) {
@@ -85,6 +89,10 @@ public class CityController {
         String province = request.getParameter("add_province");
         String citycode = request.getParameter("add_citycode");
         String drome = request.getParameter("add_drome");
+        if (citycode.length()!=3){
+            request.setAttribute("information","输入的机场代码不符，代码长度为三个字符！");
+            return "failure";
+        }
         City city = new City(Integer.parseInt(id),province, cityname, citycode, drome);
         int check = cityService.update(city);
         if (check == 1) {
