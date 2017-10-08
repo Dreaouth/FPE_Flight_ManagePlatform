@@ -172,7 +172,7 @@
 							<li>
 								<%
 									if (status.compareTo("admin") == 0) {
-								%><a _href="admin"> <%
+								%><a _href="admin/queryAdmin"> <%
  	} else {
  %> <a _href="forbid"> <%
  	}
