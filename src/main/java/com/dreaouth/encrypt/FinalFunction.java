@@ -27,7 +27,12 @@ public class FinalFunction {
 		passenger.setTel(FunctionForFPE.EncryedForLong(tel, aesKeyFor128, id));
 		passenger.setCard(FunctionForFPE.EncryStringIFX(card, aesKeyFor128, id));
 		passenger.setSeat(FunctionForFPE.EncryStringIFX(Seat, aesKeyFor128, id));
-		passenger.setPlaneId(FunctionForFPE.EncryedForInteger(planeId, aesKeyFor128, id));
+		if(planeId > 100){
+			passenger.setPlaneId(FunctionForFPE.EncryedForInteger(planeId, aesKeyFor128, id));
+		}else{
+			passenger.setPlaneId(FunctionForFPE.EncryShortNumber(planeId,aesKeyFor128,id));
+		}
+
 	}
 	static public void DecryForPassDeger(Passenger passenger,byte[] aesKeyFor128){
 		Integer id = passenger.getId();
@@ -42,7 +47,11 @@ public class FinalFunction {
 		passenger.setTel(FunctionForFPE.DecryedForLong(tel, aesKeyFor128, id));
 		passenger.setCard(FunctionForFPE.DecryStringIFX(card, aesKeyFor128, id));
 		passenger.setSeat(FunctionForFPE.DecryStringIFX(Seat, aesKeyFor128, id));
-		passenger.setPlaneId(FunctionForFPE.DecryedForInteger(planeId, aesKeyFor128, id));
+		if(planeId > 100) {
+			passenger.setPlaneId(FunctionForFPE.DecryedForInteger(planeId, aesKeyFor128, id));
+		}else{
+			passenger.setPlaneId(FunctionForFPE.EncryShortNumber(planeId,aesKeyFor128,id));
+		}
 	}
 	static public void EncryForPassengers(List<Passenger> passengers,byte[] aesKeyFor128){
 		for(Passenger passenger:passengers){
@@ -125,7 +134,7 @@ public class FinalFunction {
 		plane.setMode(FunctionForFPE.DecryStringIFX(mode, aesKeyFor128, id));
 		plane.setNumber(FunctionForFPE.DecryedForInteger(number, aesKeyFor128, id));
 		plane.setPrice(FunctionForFPE.DecryedForInteger(price, aesKeyFor128, id));
-		plane.setStartDrome(FunctionForFPE.DecryStringIFX(startDrome, aesKeyFor128, id));   
+		plane.setStartDrome(FunctionForFPE.DecryStringIFX(startDrome, aesKeyFor128, id));
 	}
 	static public void EecryForPlanes(List<Plane> planes,byte[] aesKeyFor128){
 		for(Plane plane:planes){

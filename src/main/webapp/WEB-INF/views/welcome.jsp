@@ -102,7 +102,7 @@
 							<li>
 								<%
 									if (status.compareTo("admin") == 0) {
-								%><a _href="encrypt/encryptPassenger"> <%
+								%><a _href="encrypt/Passenger"> <%
  	} else {
  %> <a _href="forbid.jsp"> <%
  	}
@@ -112,7 +112,7 @@
 							<li>
 								<%
 									if (status.compareTo("admin") == 0) {
-								%><a _href="encrypt/encryptPlane"> <%
+								%><a _href="encrypt/Plane"> <%
  	} else {
  %> <a _href="forbid.jsp"> <%
  	}
@@ -122,47 +122,6 @@
 						</ul>
 					</dd>
 				</dl>
-				<!--
-				<dl id="menu-article">
-					<dt>
-						<i class="icon-edit"></i> 调度管理<b></b>
-					</dt>
-					<dd>
-						<ul>
-							<li>
-								<%
-									if (status.compareTo("超级管理员") == 0 || status.compareTo("调度管理员") == 0) {
-								%><a _href="UpdateAirport?action=showall"> <%
- 	} else {
- %> <a _href="forbid.jsp"> <%
- 	}
- %>更改城市(机场)
-								</a>
-							</li>
-							<li>
-								<%
-									if (status.compareTo("超级管理员") == 0 || status.compareTo("调度管理员") == 0) {
-								%><a _href="UpdatePlane?action=showall"> <%
- 	} else {
- %> <a _href="forbid.jsp"> <%
- 	}
- %>更改航班
-								</a>
-							</li>
-							<li>
-								<%
-									if (status.compareTo("超级管理员") == 0 || status.compareTo("调度管理员") == 0) {
-								%><a _href="UpdateMode?action=showall"> <%
- 	} else {
- %> <a _href="forbid.jsp"> <%
- 	}
- %>更改机型
-								</a>
-							</li>
-						</ul>
-					</dd>
-				</dl>
-				-->
 				<dl id="menu-product">
 					<dt>
 						<i class="icon-beaker"></i> 用户管理<b></b>

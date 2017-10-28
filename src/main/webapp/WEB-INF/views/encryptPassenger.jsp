@@ -18,17 +18,18 @@
 </head>
 <body>
 <%
+    String encrypt= (String) request.getAttribute("encrypt");
     String check = (String) request.getAttribute("check");
-    if (check.equals("add")) {
+    if (check.equals("encrypt")) {
 %>
 <script type="text/javascript">
-    alert("添加成功！");
+    alert("加密成功！");
 </script>
 <%
-} else if (check.equals("update")) {
+} else if (check.equals("decrypt")) {
 %>
 <script type="text/javascript">
-    alert("修改成功！");
+    alert("解密成功！");
 </script>
 <%}%>
 <nav class="Hui-breadcrumb">
@@ -36,7 +37,7 @@
     <span class="c-gray en">&gt;</span> 乘客管理 <a
         class="btn btn-success radius r mr-20"
         style="line-height: 1.6em; margin-top: 3px"
-        href="queryPassenger" title="刷新"><i
+        href="Passenger" title="刷新"><i
         class="icon-refresh"></i></a>
 </nav>
 <div class="pd-20">
@@ -53,9 +54,8 @@
             <button type="submit" class="btn btn-success">
                 <i class="icon-search"></i> 查询
             </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;<a href="javascript:;" onClick="user_add('550','','添加乘客','insert')"
-                     class="btn btn-primary radius"><i
-                class="icon-plus"></i> 添加乘客</a>
+            &nbsp;<a href="encryptPassenger" class="btn btn-primary radius"><i
+                class="icon-plus"></i> 执行<%=encrypt%></a>
         </form>
 
     </div>
@@ -65,12 +65,11 @@
             <thead>
             <tr class="text-c">
                 <th width="100">姓名</th>
-                <th width="50">年龄</th>
+                <th width="50">性别</th>
                 <th width="200">电话</th>
                 <th width="200">身份证号</th>
                 <th width="100">座位号</th>
                 <th width="100">航班号</th>
-                <th width="50">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -82,14 +81,6 @@
                     <td>${temp.card}</td>
                     <td>${temp.seat}</td>
                     <td>${temp.planeId}</td>
-                    <td class="f-14 user-manage"><a title="编辑"
-                                                    href="javascript:;"
-                                                    onClick="user_edit('4','550','','修改乘客信息','update?id=${temp.id}&name=${temp.name}&age=${temp.age}&tel=${temp.tel}&card=${temp.card}&seat=${temp.seat}&planeId=${temp.planeId}')"
-                                                    class="ml-5" style="text-decoration: none"> <i
-                            class="icon-edit"></i></a><a title="删除" href="javascript:;"
-                                                         onClick="sta_del(this,${temp.id})" class="ml-5"
-                                                         style="text-decoration: none"><i class="icon-trash"></i></a>
-                    </td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -103,43 +94,6 @@
 <script type="text/javascript"
         src="${APP_PATH}/package/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="${APP_PATH}/package/js/H-ui.admin.js"></script>
-<script type="text/javascript">
-    window.onload = selectShow;
-    var req;
-    window.onload = function () {
-    }
-
-    function sta_del(obj, id) {
-        layer.confirm('确认删除该乘客信息吗 ', function (index) {
-            if (window.XMLHttpRequest) {
-                req = new XMLHttpRequest();
-            } else if (window.ActiveXObject) {
-                req = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            if (req) {
-                req.open("POST", "deletePassenger", true);
-                req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                req.onreadystatechange = callback;
-                req.send("sta_id=" + id);
-            }
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!', 1);
-        });
-    }
-
-    function callback() {
-        if (req.readyState == 4) {
-            if (req.status == 200) {
-                parseMessage();
-            } else {
-                //alert("Not able to retrieve description" + req.statusText);
-            }
-        }
-    }
-
-    function parseMessage() {
-    }
-</script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.order_table').DataTable({

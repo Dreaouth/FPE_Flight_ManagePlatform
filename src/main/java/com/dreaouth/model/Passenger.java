@@ -37,6 +37,10 @@ public class Passenger {
         this.planeId = planeId;
     }
 
+    public Passenger(String card) {
+        this.card = card;
+    }
+
     public Integer getId() {
         return id;
     }

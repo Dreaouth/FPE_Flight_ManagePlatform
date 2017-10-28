@@ -26,6 +26,23 @@ public class Plane {
     public Plane() {
     }
 
+    @Override
+    public String toString() {
+        return "Plane{" +
+                "id=" + id +
+                ", startDrome='" + startDrome + '\'' +
+                ", arriveDrome='" + arriveDrome + '\'' +
+                ", company='" + company + '\'' +
+                ", airlinecode='" + airlinecode + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", arriveTime='" + arriveTime + '\'' +
+                ", mode='" + mode + '\'' +
+                ", date='" + date + '\'' +
+                ", number=" + number +
+                ", price=" + price +
+                '}';
+    }
+
     public Plane(String startDrome, String arriveDrome) {
         this.startDrome = startDrome;
         this.arriveDrome = arriveDrome;

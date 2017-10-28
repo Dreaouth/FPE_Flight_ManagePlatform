@@ -47,6 +47,8 @@ public class PlaneController {
         String airlineCode=request.getParameter("airlineCode");
         String start_time=request.getParameter("start_time");
         String arrive_time=request.getParameter("arrive_time");
+        start_time = start_time.trim();
+        arrive_time = arrive_time.trim();
         String mode=request.getParameter("mode");
         String date=request.getParameter("date");
         String number=request.getParameter("number");
@@ -103,6 +105,8 @@ public class PlaneController {
         String airlineCode=request.getParameter("airlineCode");
         String start_time=request.getParameter("start_time");
         String arrive_time=request.getParameter("arrive_time");
+        start_time = start_time.trim();
+        arrive_time = arrive_time.trim();
         String mode=request.getParameter("mode");
         String date=request.getParameter("date");
         String number=request.getParameter("number");
