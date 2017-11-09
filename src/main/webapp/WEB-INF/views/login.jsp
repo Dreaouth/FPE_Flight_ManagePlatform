@@ -13,7 +13,7 @@
 <LINK rel="Shortcut Icon" href="/favicon.ico" />
 <link href="${APP_PATH}/package/css/H-ui.css" rel="stylesheet" type="text/css" />
 <link href="${APP_PATH}/package/css/H-ui.login.css" rel="stylesheet" type="text/css" />
-<title>后台登录</title>
+<title>航班信息系统</title>
 <meta name="keywords" content="my12306">
 <meta name="description" content="my12306">
 </head>
@@ -40,7 +40,7 @@
 		}
 	</script>
 <div class="loginWraper">
-<h1 align="center" >后台登录</h1>
+<h1 align="center" >航班信息系统</h1>
   <div id="loginform" class="loginBox">
     <form onsubmit="return check()" action="check_login" method="post">
       <div class="formRow user">

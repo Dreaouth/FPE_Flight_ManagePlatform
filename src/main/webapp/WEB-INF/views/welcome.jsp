@@ -36,7 +36,7 @@
 		<a class="Hui-logo-m l" href="welcome.jsp" title="H-ui.admin">my12306</a>
 		<span class="Hui-subtitle l">V1.0</span> <span class="Hui-userbox"><span
 			class="c-white"><%=title%></span> <a
-			class="btn btn-danger radius ml-10" href="login.jsp" title="退出"><i
+			class="btn btn-danger radius ml-10" href="login" title="退出"><i
 				class="icon-off"></i> 退出</a></span> <a aria-hidden="false"
 			class="Hui-nav-toggle" id="nav-toggle" href="#"></a>
 	</header>

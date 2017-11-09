@@ -19,7 +19,7 @@
 <body>
 <%
     String encrypt= (String) request.getAttribute("encrypt");
-    String check = (String) request.getAttribute("encrypt");
+    String check = (String) request.getAttribute("check");
     if (check.equals("encrypt")) {
 %>
 <script type="text/javascript">
@@ -33,7 +33,7 @@
 </script>
 <%}%>
 <nav class="Hui-breadcrumb">
-    <i class="icon-home"></i> 首页 <span class="c-gray en">&gt;</span> 基础数据
+    <i class="icon-home"></i> 首页 <span class="c-gray en">&gt;</span> 加密演示
     <span class="c-gray en">&gt;</span> 航班管理 <a
         class="btn btn-success radius r mr-20"
         style="line-height: 1.6em; margin-top: 3px"

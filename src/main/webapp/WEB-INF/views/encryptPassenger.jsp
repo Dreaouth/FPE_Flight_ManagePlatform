@@ -33,7 +33,7 @@
 </script>
 <%}%>
 <nav class="Hui-breadcrumb">
-    <i class="icon-home"></i> 首页 <span class="c-gray en">&gt;</span> 基础数据
+    <i class="icon-home"></i> 首页 <span class="c-gray en">&gt;</span> 加密演示
     <span class="c-gray en">&gt;</span> 乘客管理 <a
         class="btn btn-success radius r mr-20"
         style="line-height: 1.6em; margin-top: 3px"
